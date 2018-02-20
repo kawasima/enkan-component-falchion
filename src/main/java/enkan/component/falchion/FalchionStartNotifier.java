@@ -10,16 +10,15 @@ import java.io.InputStream;
 import java.lang.management.ManagementFactory;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.SocketTimeoutException;
 import java.net.URL;
 
-public class FalchionStartNotifier extends SystemComponent {
+public class FalchionStartNotifier extends SystemComponent<FalchionStartNotifier> {
     private String containerUrl = "http://localhost:44010";
     private int connectionTimeout = 3000;
     private int socketTimeout = 3000;
 
     @Override
-    protected ComponentLifecycle lifecycle() {
+    protected ComponentLifecycle<FalchionStartNotifier> lifecycle() {
         return new ComponentLifecycle<FalchionStartNotifier>() {
             @Override
             public void start(FalchionStartNotifier component) {
@@ -41,6 +40,7 @@ public class FalchionStartNotifier extends SystemComponent {
                     if (status != HttpURLConnection.HTTP_NO_CONTENT)
                         throw new IOException("The respond form the container was not 204");
                     try (InputStream in = conn.getInputStream()) {
+                        //noinspection StatementWithEmptyBody
                         while(in.read() >= 0) {
                             // Skip
                         }

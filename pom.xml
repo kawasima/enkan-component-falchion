@@ -6,7 +6,7 @@
     <parent>
         <groupId>net.unit8.enkan</groupId>
         <artifactId>enkan-parent</artifactId>
-        <version>0.2.1-SNAPSHOT</version>
+        <version>0.6.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>enkan-component-falchion</artifactId>
@@ -24,7 +24,7 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
+            <groupId>org.junit.jupiter</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
